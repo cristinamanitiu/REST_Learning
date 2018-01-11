@@ -11,8 +11,8 @@ public class JsonGreetingController {
     private final AtomicLong counter = new AtomicLong();
 
     @RequestMapping("/JsonGreeting")
-    public JsonGreeting greeting(@RequestParam(value="name", defaultValue="World") String name) {
+    public JsonGreeting greeting(@RequestParam(value="name", defaultValue="World")  String name, @RequestParam(value="adj", defaultValue="Beautiful") String adjective) {
         return new JsonGreeting(counter.incrementAndGet(),
-                String.format(template, name));
+                String.format(template, name), adjective);
     }
 }
